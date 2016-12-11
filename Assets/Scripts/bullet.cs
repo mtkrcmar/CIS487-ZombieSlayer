@@ -5,8 +5,8 @@ public class bullet : MonoBehaviour
 {
     public int damageValue = 20;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         Destroy(gameObject, 5);
     }
