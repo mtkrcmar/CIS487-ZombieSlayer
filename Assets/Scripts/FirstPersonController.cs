@@ -24,7 +24,7 @@ public class FirstPersonController : MonoBehaviour
 
     public float invincibilityTime = 1.0f;
 
-	public AudioSource walkingSound;
+    public AudioSource walkingSound;
 
     // gun control
     public List<string> weapons = new List<string>();
@@ -40,8 +40,8 @@ public class FirstPersonController : MonoBehaviour
 
     public Text healthDisplay;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         Cursor.visible = false;
         cc = GetComponent<CharacterController>();
@@ -54,10 +54,10 @@ public class FirstPersonController : MonoBehaviour
         gun.transform.parent = Camera.main.transform;
 
     }
-	
-	// Update is called once per frame
-	void Update ()
-	{
+    
+    // Update is called once per frame
+    void Update ()
+    {
         //Rotation
         if (pauseMenu.GetComponent<PauseScript>().paused == false)
         {
@@ -70,27 +70,27 @@ public class FirstPersonController : MonoBehaviour
             verticalRotation = Mathf.Clamp(verticalRotation, -upDownRange, upDownRange);
             Camera.main.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
         }
-		//Movement
-		float forwardSpeed = Input.GetAxis ("Vertical") * movementSpeed;
-		float sideSpeed = Input.GetAxis ("Horizontal") * movementSpeed;
+        //Movement
+        float forwardSpeed = Input.GetAxis ("Vertical") * movementSpeed;
+        float sideSpeed = Input.GetAxis ("Horizontal") * movementSpeed;
 
-		//if any movement acitivate walking sound
-		if (forwardSpeed != 0||sideSpeed!=0)
+        //if any movement acitivate walking sound
+        if (forwardSpeed != 0||sideSpeed!=0)
         {
-			if (!walkingSound.isPlaying)
+            if (!walkingSound.isPlaying)
             {
                 if (cc.isGrounded)
                 {                  
                     walkingSound.Play();
                 }
-			}
-		}
-		//if no movement deacitivate walking sound
-		if (forwardSpeed == 0 && sideSpeed == 0) {
-			if (walkingSound.isPlaying) {
-				walkingSound.Stop ();
-			}
-		}
+            }
+        }
+        //if no movement deacitivate walking sound
+        if (forwardSpeed == 0 && sideSpeed == 0) {
+            if (walkingSound.isPlaying) {
+                walkingSound.Stop ();
+            }
+        }
 
 
         //set velocity to constant acceleration
