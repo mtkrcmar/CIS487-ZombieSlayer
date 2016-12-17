@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     public int damageValue = 20;
     public int maxHealth = 100;
     public int currentHealth;
-
+	bool isDead= false;
     // Use this for initialization
     void Start()
     {
@@ -43,11 +43,17 @@ public class Enemy : MonoBehaviour
         currentHealth -= damageValue;
         if (currentHealth <= 0)
         {
+			if (isDead==false) 
+			{
+				ZombieKillCount.zombieKillCount = ZombieKillCount.zombieKillCount + 1;
+				isDead = true;
+			}
             gameObject.GetComponent<Collider>().enabled = false;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             gameObject.GetComponent<Animation>().Play("die01");
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             Destroy(gameObject, 1);
+
         }
     }
 }

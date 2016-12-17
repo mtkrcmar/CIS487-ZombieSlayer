@@ -34,8 +34,8 @@ public class MachineGunShooting : MonoBehaviour
                     GameObject theBullet = (GameObject)Instantiate(bullet, bulletEmitter.transform.position, bulletEmitter.transform.rotation);
                     timer = .15f;
                     // GameObject theBullet = (GameObject)Instantiate(bullet, gun.transform.position + gun.transform.forward + (gun.transform.up /5), gun.transform.rotation);         
-                    theBullet.GetComponent<Rigidbody>().AddForce(cam.transform.forward * bulletImpulse, ForceMode.Impulse);
-                    MachineGunFireSound.Play(); // play handgun fire sound
+                    theBullet.GetComponent<Rigidbody>().AddForce(cam.transform.forward * bulletImpulse, ForceMode.Impulse);                 			
+					MachineGunFireSound.Play(); // play handgun fire sound					
                     Debug.Log(timer);
                 }
             }
