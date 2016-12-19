@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class JournalEntry2 : MonoBehaviour
 {
-    GameObject[] journalObjects;
-    GameObject crosshair;
+    public GameObject Journal;
     public GameObject pauseGame;
+    public GameObject ResumeText;
+    GameObject crosshair;
 
     // Use this for initialization
     void Start()
     {
-        journalObjects = GameObject.FindGameObjectsWithTag("JournalPickup2");
         crosshair = GameObject.FindGameObjectWithTag("Crosshair");
         hideJournal();
     }
@@ -24,15 +24,13 @@ public class JournalEntry2 : MonoBehaviour
 
             if (player)
             {
-                pauseGame.GetComponent<PauseScript>().journalActive2 = true;
+                pauseGame.GetComponent<PauseScript>().journalActive = true;
                 Time.timeScale = 0;
                 Cursor.visible = true;
                 pauseGame.GetComponent<PauseScript>().paused = true;
                 crosshair.SetActive(false);
-                foreach (GameObject g in journalObjects)
-                {
-                    g.SetActive(true);
-                }
+                Journal.SetActive(true);
+                ResumeText.SetActive(true);
             }
         }
     }
@@ -40,9 +38,7 @@ public class JournalEntry2 : MonoBehaviour
     public void hideJournal()
     {
         crosshair.SetActive(true);
-        foreach (GameObject g in journalObjects)
-        {
-            g.SetActive(false);
-        }
+        Journal.SetActive(false);
+        ResumeText.SetActive(false);
     }
 }
