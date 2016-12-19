@@ -6,7 +6,7 @@ public class Goal : MonoBehaviour
 {
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.name == "player")
+        if (collider.gameObject.name == "Player")
         {
             SceneManager.LoadScene("InsideHospital");
         }
