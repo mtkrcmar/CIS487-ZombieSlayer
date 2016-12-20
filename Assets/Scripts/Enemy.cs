@@ -7,13 +7,20 @@ public class Enemy : MonoBehaviour
     public int damageValue = 20;
     public int maxHealth = 100;
     public int currentHealth;
+    public bool isDying = false;
 
     // Use this for initialization
     void Start()
     {
         currentHealth = maxHealth;
     }
-
+    void Update()
+    {
+        if(isDying)
+        {
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
+    }
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.name == "player")
@@ -42,7 +49,8 @@ public class Enemy : MonoBehaviour
         gameObject.GetComponent<Animation>().PlayQueued("walkzombie");
         currentHealth -= damageValue;
         if (currentHealth <= 0)
-        {
+        {         
+            isDying = true;
             gameObject.GetComponent<Collider>().enabled = false;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             gameObject.GetComponent<Animation>().Play("die01");

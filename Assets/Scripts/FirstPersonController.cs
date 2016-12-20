@@ -9,6 +9,10 @@ public class FirstPersonController : MonoBehaviour
     //guns
     public GameObject pistol;
     public GameObject machineGun;
+    public Image pistolicon;
+    public Image machinegunIcon;
+    public Sprite machinegunHave;
+
     // helth
     public int maxHealth = 100;
     public int currentHealth;
@@ -113,7 +117,18 @@ public class FirstPersonController : MonoBehaviour
         cc.Move(speed * Time.deltaTime);
 
         //change weapon
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Debug.Log(getWeapons().Contains("pistol"));
+            if (getWeapons().Contains("pistol"))
+            {
+                Destroy(gun);
+                gun = (GameObject)Instantiate(pistol, gunPlacement.transform.position, gunPlacement.transform.rotation);
+                gun.transform.parent = Camera.main.transform;
+
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             Debug.Log(getWeapons().Contains("MachineGun"));
             if (getWeapons().Contains("MachineGun"))
@@ -133,8 +148,9 @@ public class FirstPersonController : MonoBehaviour
             Debug.Log("gun Collision");
             addWeapon("MachineGun");
             Destroy(hit.gameObject);
-            
-           // GameObject machinegun = (GameObject)Instantiate(gun, gunPlacement.transform.position, gunPlacement.transform.rotation);
+            machinegunIcon.sprite = machinegunHave;
+
+            // GameObject machinegun = (GameObject)Instantiate(gun, gunPlacement.transform.position, gunPlacement.transform.rotation);
         }
         else if(hit.gameObject.tag == "zombieWeapon")
         {
