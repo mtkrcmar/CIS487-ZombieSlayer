@@ -92,15 +92,8 @@ public class PauseScript : MonoBehaviour
         if (journalActive == true)
         {
             journalActive = false;
-            journalEntry.GetComponent<JournalEntry>().hideJournal();
+            journalEntry.GetComponent<JournalEntry2>().hideJournal();
             Destroy(journalEntry);
-        }
-
-        if (journalActive2 == true)
-        {
-            journalActive2 = false;
-            journalEntry2.GetComponent<JournalEntry2>().hideJournal();
-            Destroy(journalEntry2);
         }
 
         Cursor.visible = false;
