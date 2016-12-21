@@ -7,13 +7,21 @@ public class Enemy : MonoBehaviour
     public int damageValue = 20;
     public int maxHealth = 100;
     public int currentHealth;
-	bool isDead= false;
+    public bool isDead = false;
+
+
     // Use this for initialization
     void Start()
     {
         currentHealth = maxHealth;
     }
-
+    void Update()
+    {
+        if(isDying)
+        {
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
+    }
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.name == "player")
@@ -42,12 +50,10 @@ public class Enemy : MonoBehaviour
         gameObject.GetComponent<Animation>().PlayQueued("walkzombie");
         currentHealth -= damageValue;
         if (currentHealth <= 0)
-        {
-			if (isDead==false) 
-			{
-				ZombieKillCount.zombieKillCount = ZombieKillCount.zombieKillCount + 1;
-				isDead = true;
-			}
+        {         
+            isDead = true;
+            ZombieKillCount.zombieKillCount = ZombieKillCount.zombieKillCount + 1;
+        }
             gameObject.GetComponent<Collider>().enabled = false;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             gameObject.GetComponent<Animation>().Play("die01");
