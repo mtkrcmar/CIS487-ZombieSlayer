@@ -7,8 +7,8 @@ public class pistolShooting : MonoBehaviour
     public GameObject bulletEmitter;
     public AudioSource handGunFireSound;
     float bulletImpulse = 100f;
-    
 
+    float recoilSpeed=  0.01f;    // Speed to move camera
     void Start ()
     {
 
@@ -19,9 +19,16 @@ public class pistolShooting : MonoBehaviour
     {
             if (Input.GetButtonDown("Fire1"))
             {
+                
                 GameObject theBullet = (GameObject)Instantiate(bullet, bulletEmitter.transform.position, bulletEmitter.transform.rotation);
                 theBullet.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * bulletImpulse, ForceMode.Impulse);
-                handGunFireSound.Play(); // play handgun fire sound
-            }
+               gameObject.GetComponent<Recoil>().StartRecoil(0.2f, 10f, 10f);
+                Camera.main.GetComponent<CameraShake>().shakeDuration = .05f;
+                handGunFireSound.enabled = true;
+                handGunFireSound.Play(); // play handgun fire 
+                
+
+        }
     }
+
 }

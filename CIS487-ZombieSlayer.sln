@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIS487-ZombieSlayer.CSharp", "CIS487-ZombieSlayer.CSharp.csproj", "{5D7B2ED1-C1C1-7F5E-FD1E-96802A3CA47F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIS487-ZombieSlayer.CSharp.Editor", "CIS487-ZombieSlayer.CSharp.Editor.csproj", "{0D94341B-7D78-B195-FD79-FD1EBDC17EB4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D7B2ED1-C1C1-7F5E-FD1E-96802A3CA47F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D7B2ED1-C1C1-7F5E-FD1E-96802A3CA47F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D7B2ED1-C1C1-7F5E-FD1E-96802A3CA47F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D7B2ED1-C1C1-7F5E-FD1E-96802A3CA47F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D94341B-7D78-B195-FD79-FD1EBDC17EB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D94341B-7D78-B195-FD79-FD1EBDC17EB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D94341B-7D78-B195-FD79-FD1EBDC17EB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D94341B-7D78-B195-FD79-FD1EBDC17EB4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
