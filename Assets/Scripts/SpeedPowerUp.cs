@@ -8,7 +8,7 @@ public class SpeedPowerUp : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.name == "player")
+        if (collider.gameObject.name == "Player")
         {
             FirstPersonController player = collider.gameObject.GetComponent<FirstPersonController>();
             if (player && (player.isSpedUp == false))
