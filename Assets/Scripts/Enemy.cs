@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     }
     void Update()
     {
-        if(isDying)
+        if (isDead)
         {
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             takeDamage(damageValue);
         }
-        if(collider.gameObject.tag == "zombie")
+        if (collider.gameObject.tag == "zombie")
         {
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
@@ -50,16 +50,16 @@ public class Enemy : MonoBehaviour
         gameObject.GetComponent<Animation>().PlayQueued("walkzombie");
         currentHealth -= damageValue;
         if (currentHealth <= 0)
-        {         
+        {
             isDead = true;
             ZombieKillCount.zombieKillCount = ZombieKillCount.zombieKillCount + 1;
         }
-            gameObject.GetComponent<Collider>().enabled = false;
-            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            gameObject.GetComponent<Animation>().Play("die01");
-            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            Destroy(gameObject, 1);
+        gameObject.GetComponent<Collider>().enabled = false;
+        gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        gameObject.GetComponent<Animation>().Play("die01");
+        gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        Destroy(gameObject, 1);
 
-        }
     }
 }
+
