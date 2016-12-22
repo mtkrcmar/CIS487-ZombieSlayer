@@ -35,7 +35,7 @@ public class FirstPersonController : MonoBehaviour
     public GameObject gun;
     public GameObject gunPlacement;
     public GameObject pauseMenu;
-
+	public GameObject damagePlane;
     bool gunpickup = false;
     public bool isSpedUp = false;
     public bool isInvincible = false;
@@ -61,7 +61,7 @@ public class FirstPersonController : MonoBehaviour
     
     // Update is called once per frame
     void Update ()
-    {
+	{
         //Rotation
         if (pauseMenu.GetComponent<PauseScript>().paused == false)
         {
@@ -201,14 +201,24 @@ public class FirstPersonController : MonoBehaviour
         currentHealth -= damageValue;
         isInvincible = true;
         setHealthDisplay();
+		StartCoroutine(damageScreen());
+
         StartCoroutine(endInvincibility());
         if (currentHealth <= 0)
         {
+			ZombieKillCount.zombieKillCount = 0;
             currentHealth = 0;
             setHealthDisplay();
             pauseMenu.GetComponent<PauseScript>().Reload();
         }
     }
+
+	IEnumerator damageScreen()
+	{
+		damagePlane.SetActive (true);
+		yield return new WaitForSeconds(0.1f);
+		damagePlane.SetActive (false);
+	}
 
     IEnumerator endInvincibility()
     {
