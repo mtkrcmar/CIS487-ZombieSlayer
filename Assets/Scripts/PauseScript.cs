@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class PauseScript : MonoBehaviour
 {
     GameObject[] pauseObjects;
-    GameObject crosshair;
+    public GameObject crosshair;
     public GameObject journalEntry;
     public GameObject journalEntry2;
 

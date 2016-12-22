@@ -8,7 +8,7 @@ public class Goal : MonoBehaviour
     {
         if (collider.gameObject.name == "Player")
         {
-            SceneManager.LoadScene("InsideHospital");
+            SceneManager.LoadScene("outdoor_hospital");
         }
     }
 }

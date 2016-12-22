@@ -22,8 +22,7 @@ public class pistolShooting : MonoBehaviour
                 
                 GameObject theBullet = (GameObject)Instantiate(bullet, bulletEmitter.transform.position, bulletEmitter.transform.rotation);
                 theBullet.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * bulletImpulse, ForceMode.Impulse);
-               gameObject.GetComponent<Recoil>().StartRecoil(0.2f, 10f, 10f);
-                Camera.main.GetComponent<CameraShake>().shakeDuration = .05f;
+                gameObject.GetComponent<Recoil>().StartRecoil(0.2f, 10f, 10f);              
                 handGunFireSound.enabled = true;
                 handGunFireSound.Play(); // play handgun fire 
                 
