@@ -7,7 +7,11 @@ public class Recoil : MonoBehaviour
     private float maxRecoil_x = 20f;
     private float maxRecoil_y = -50f;
     private float recoilSpeed = 1f;
-    private Camera cam = Camera.main;
+    private Camera cam; 
+    void Start()
+    {
+        cam = Camera.main;
+    }
     public void StartRecoil(float recoilParam, float maxRecoil_xParam, float recoilSpeedParam)
     {
         // in seconds
